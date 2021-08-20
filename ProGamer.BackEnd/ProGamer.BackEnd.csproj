@@ -253,6 +253,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Entities\" />
+    <Folder Include="Helpers\" />
     <Folder Include="Models\Requests\" />
     <Folder Include="Models\Responses\" />
     <Folder Include="Services\Implements\" />
