@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace ProGamer.BackEnd.Controllers
 {
+    [Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -22,12 +23,12 @@ namespace ProGamer.BackEnd.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody] string value)
+        public void Post([FromBody]string value)
         {
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody]string value)
         {
         }
 

@@ -8,7 +8,6 @@ namespace ProGamer.BackEnd.Controllers
 {
     public class HomeController : Controller
     {
-        [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
