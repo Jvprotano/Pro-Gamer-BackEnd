@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -16,18 +15,22 @@ using Microsoft.Owin.Security.OAuth;
 using ProGamer.BackEnd.Models;
 using ProGamer.BackEnd.Providers;
 using ProGamer.BackEnd.Results;
+using ProGamer.BackEnd.Services.Interfaces;
 
 namespace ProGamer.BackEnd.Controllers
 {
-    [Authorize]
-    [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    [RoutePrefix("api/account")]
+    public class AccountController : BaseController
     {
+        #region Properties
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        private readonly IAccountService _accountService = null;
+
+        public AccountController(IAccountService accountService)
         {
+            _accountService = accountService;
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -50,6 +53,9 @@ namespace ProGamer.BackEnd.Controllers
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
+        #endregion
+
+        #region Methods
 
         // GET api/Account/UserInfo
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
@@ -57,7 +63,7 @@ namespace ProGamer.BackEnd.Controllers
         public UserInfoViewModel GetUserInfo()
         {
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
-
+          
             return new UserInfoViewModel
             {
                 Email = User.Identity.GetUserName(),
@@ -373,6 +379,9 @@ namespace ProGamer.BackEnd.Controllers
             return Ok();
         }
 
+        #endregion
+        
+        #region Helpers
         protected override void Dispose(bool disposing)
         {
             if (disposing && _userManager != null)
@@ -383,8 +392,6 @@ namespace ProGamer.BackEnd.Controllers
 
             base.Dispose(disposing);
         }
-
-        #region Helpers
 
         private IAuthenticationManager Authentication
         {
