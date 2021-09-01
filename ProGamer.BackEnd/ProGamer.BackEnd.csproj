@@ -238,7 +238,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Entities\Account.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -299,9 +298,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Helpers\TokenHelper.cs" />
+    <Compile Include="Helpers\ValidateHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Request\LoginRequest.cs" />
+    <Compile Include="Models\Response\LoginResponse.cs" />
+    <Compile Include="Models\Response\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -385,9 +387,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Models\Request\" />
-    <Folder Include="Models\Response\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
