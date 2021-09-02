@@ -238,6 +238,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegisterUserController.cs" />
     <Compile Include="Entities\Account.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -302,13 +303,16 @@
     <Compile Include="Helpers\ValidateHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Request\LoginRequest.cs" />
+    <Compile Include="Models\Request\RegisterUserRequest.cs" />
     <Compile Include="Models\Response\LoginResponse.cs" />
     <Compile Include="Models\Response\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\Implements\AccountService.cs" />
+    <Compile Include="Services\Implements\RegisterUserService.cs" />
     <Compile Include="Services\Interfaces\IAccountService.cs" />
+    <Compile Include="Services\Interfaces\IRegisterUserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +392,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\RegisterUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

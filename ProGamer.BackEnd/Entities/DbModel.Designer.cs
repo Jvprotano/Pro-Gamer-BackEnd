@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\Entities\DbModel.edmx'. 
+﻿// T4 code generation is enabled for model 'J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\Entities\DbModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
