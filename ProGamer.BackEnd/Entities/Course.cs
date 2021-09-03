@@ -31,12 +31,12 @@ namespace ProGamer.BackEnd.Entities
         public bool Active { get; set; }
         public string Title { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual CourseCategory CourseCategory { get; set; }
         public virtual Game Game { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CourseRating> CourseRating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchase { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

@@ -23,10 +23,10 @@ namespace ProGamer.BackEnd.Entities
         public string Code { get; set; }
         public System.DateTime DatePurchase { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Course Course { get; set; }
         public virtual Payment Payment { get; set; }
         public virtual PaymentStatus PaymentStatus { get; set; }
         public virtual PaymentType PaymentType { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

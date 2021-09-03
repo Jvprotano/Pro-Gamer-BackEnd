@@ -56,6 +56,27 @@ namespace ProGamer.BackEnd.Controllers
         }
         #endregion
 
+        #region RegisterUser
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("register-user")]
+        public async Task<IHttpActionResult> RegisterUser([FromBody] RegisterUserRequest request)
+        {
+            try
+            {
+               await _accountService.RegisterUserAsync(request, _userManager);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }

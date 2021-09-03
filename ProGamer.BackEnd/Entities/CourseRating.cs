@@ -19,7 +19,7 @@ namespace ProGamer.BackEnd.Entities
         public string UserId { get; set; }
         public int Note { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Course Course { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

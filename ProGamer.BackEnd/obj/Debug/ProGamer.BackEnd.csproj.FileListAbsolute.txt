@@ -270,3 +270,6 @@ J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bi
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\System.Web.Http.Owin.xml
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.CopyComplete
+J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.Cors.dll
+J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\System.Web.Cors.dll
+J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.Cors.xml

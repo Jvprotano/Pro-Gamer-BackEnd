@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d37e36592de64f2a816df7950d0b73ce" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="1.375" PointY="2" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Account" Width="1.5" PointX="1.25" PointY="3.625" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.AccountType" Width="1.5" PointX="6.125" PointY="6.25" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Chat" Width="1.5" PointX="4.75" PointY="4" IsExpanded="false" />
@@ -20,12 +19,6 @@
         <EntityTypeShape EntityType="Model.Purchase" Width="1.5" PointX="9.75" PointY="5" IsExpanded="false" />
         <EntityTypeShape EntityType="Model.Wallet" Width="1.5" PointX="5" PointY="0.75" IsExpanded="false" />
         <AssociationConnector Association="Model.FK_Account_AccountType" />
-        <AssociationConnector Association="Model.FK_Account_AspNetUsers" />
-        <AssociationConnector Association="Model.FK_ChatMessage_AspNetUsers" />
-        <AssociationConnector Association="Model.FK_Course_AspNetUsers" />
-        <AssociationConnector Association="Model.FK_CourseRating_AspNetUsers" />
-        <AssociationConnector Association="Model.FK_Purchase_AspNetUsers" />
-        <AssociationConnector Association="Model.FK_Wallet_AspNetUsers" />
         <AssociationConnector Association="Model.FK_ChatMessage_Chat" />
         <AssociationConnector Association="Model.FK_Course_CourseCategory" />
         <AssociationConnector Association="Model.FK_Course_Game" />
@@ -34,6 +27,13 @@
         <AssociationConnector Association="Model.FK_Purchase_Payment" />
         <AssociationConnector Association="Model.FK_Purchase_PaymentStatus" />
         <AssociationConnector Association="Model.FK_Purchase_PaymentType" />
+        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="false" />
+        <AssociationConnector Association="Model.FK_Account_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_ChatMessage_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Course_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_CourseRating_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Purchase_AspNetUsers" />
+        <AssociationConnector Association="Model.FK_Wallet_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -7,5 +7,6 @@ namespace ProGamer.BackEnd.Services.Interfaces
     public interface IAccountService
     {
         Task<LoginResponse> LoginAsync(LoginRequest request, ApplicationUserManager userManager, string url);
+        Task RegisterUserAsync(RegisterUserRequest request, ApplicationUserManager userManager);
     }
 }

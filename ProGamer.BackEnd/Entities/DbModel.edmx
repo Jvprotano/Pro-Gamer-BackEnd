@@ -405,35 +405,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AspNetUsers">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Account" Relationship="Model.FK_Account_AspNetUsers" FromRole="AspNetUsers" ToRole="Account" />
-          <NavigationProperty Name="ChatMessage" Relationship="Model.FK_ChatMessage_AspNetUsers" FromRole="AspNetUsers" ToRole="ChatMessage" />
-          <NavigationProperty Name="Course" Relationship="Model.FK_Course_AspNetUsers" FromRole="AspNetUsers" ToRole="Course" />
-          <NavigationProperty Name="CourseRating" Relationship="Model.FK_CourseRating_AspNetUsers" FromRole="AspNetUsers" ToRole="CourseRating" />
-          <NavigationProperty Name="Purchase" Relationship="Model.FK_Purchase_AspNetUsers" FromRole="AspNetUsers" ToRole="Purchase" />
-          <NavigationProperty Name="Wallet" Relationship="Model.FK_Wallet_AspNetUsers" FromRole="AspNetUsers" ToRole="Wallet" />
-          </EntityType>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ListAspNetUsers" EntityType="Self.AspNetUsers" />
           <EntitySet Name="ListAccount" EntityType="Model.Account" />
           <EntitySet Name="ListAccountType" EntityType="Model.AccountType" />
           <EntitySet Name="ListChat" EntityType="Model.Chat" />
@@ -450,30 +422,6 @@
           <AssociationSet Name="FK_Account_AccountType" Association="Model.FK_Account_AccountType">
             <End Role="AccountType" EntitySet="ListAccountType" />
             <End Role="Account" EntitySet="ListAccount" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Account_AspNetUsers" Association="Model.FK_Account_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="Account" EntitySet="ListAccount" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChatMessage_AspNetUsers" Association="Model.FK_ChatMessage_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="ChatMessage" EntitySet="ListChatMessage" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Course_AspNetUsers" Association="Model.FK_Course_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="Course" EntitySet="ListCourse" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CourseRating_AspNetUsers" Association="Model.FK_CourseRating_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="CourseRating" EntitySet="ListCourseRating" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Purchase_AspNetUsers" Association="Model.FK_Purchase_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="Purchase" EntitySet="ListPurchase" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Wallet_AspNetUsers" Association="Model.FK_Wallet_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
-            <End Role="Wallet" EntitySet="ListWallet" />
           </AssociationSet>
           <AssociationSet Name="FK_ChatMessage_Chat" Association="Model.FK_ChatMessage_Chat">
             <End Role="Chat" EntitySet="ListChat" />
@@ -506,6 +454,31 @@
           <AssociationSet Name="FK_Purchase_PaymentType" Association="Model.FK_Purchase_PaymentType">
             <End Role="PaymentType" EntitySet="ListPaymentType" />
             <End Role="Purchase" EntitySet="ListPurchase" />
+          </AssociationSet>
+          <EntitySet Name="ListAspNetUsers" EntityType="Model.AspNetUsers" />
+          <AssociationSet Name="FK_Account_AspNetUsers" Association="Model.FK_Account_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="Account" EntitySet="ListAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChatMessage_AspNetUsers" Association="Model.FK_ChatMessage_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="ChatMessage" EntitySet="ListChatMessage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_AspNetUsers" Association="Model.FK_Course_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="Course" EntitySet="ListCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CourseRating_AspNetUsers" Association="Model.FK_CourseRating_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="CourseRating" EntitySet="ListCourseRating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchase_AspNetUsers" Association="Model.FK_Purchase_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="Purchase" EntitySet="ListPurchase" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wallet_AspNetUsers" Association="Model.FK_Wallet_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="ListAspNetUsers" />
+            <End Role="Wallet" EntitySet="ListWallet" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="Account">
@@ -549,8 +522,8 @@
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="DateSend" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_ChatMessage_AspNetUsers" FromRole="ChatMessage" ToRole="AspNetUsers" />
           <NavigationProperty Name="Chat" Relationship="Model.FK_ChatMessage_Chat" FromRole="ChatMessage" ToRole="Chat" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_ChatMessage_AspNetUsers" FromRole="ChatMessage" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="Course">
           <Key>
@@ -565,11 +538,11 @@
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_Course_AspNetUsers" FromRole="Course" ToRole="AspNetUsers" />
           <NavigationProperty Name="CourseCategory" Relationship="Model.FK_Course_CourseCategory" FromRole="Course" ToRole="CourseCategory" />
           <NavigationProperty Name="Game" Relationship="Model.FK_Course_Game" FromRole="Course" ToRole="Game" />
           <NavigationProperty Name="CourseRating" Relationship="Model.FK_CourseRating_Course" FromRole="Course" ToRole="CourseRating" />
           <NavigationProperty Name="Purchase" Relationship="Model.FK_Purchase_Course" FromRole="Course" ToRole="Purchase" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_Course_AspNetUsers" FromRole="Course" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="CourseCategory">
           <Key>
@@ -588,8 +561,8 @@
           <Property Name="CourseId" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_CourseRating_AspNetUsers" FromRole="CourseRating" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Model.FK_CourseRating_Course" FromRole="CourseRating" ToRole="Course" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_CourseRating_AspNetUsers" FromRole="CourseRating" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -644,11 +617,11 @@
           <Property Name="PaymentStatusId" Type="Int32" Nullable="false" />
           <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DatePurchase" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_Purchase_AspNetUsers" FromRole="Purchase" ToRole="AspNetUsers" />
           <NavigationProperty Name="Course" Relationship="Model.FK_Purchase_Course" FromRole="Purchase" ToRole="Course" />
           <NavigationProperty Name="Payment" Relationship="Model.FK_Purchase_Payment" FromRole="Purchase" ToRole="Payment" />
           <NavigationProperty Name="PaymentStatus" Relationship="Model.FK_Purchase_PaymentStatus" FromRole="Purchase" ToRole="PaymentStatus" />
           <NavigationProperty Name="PaymentType" Relationship="Model.FK_Purchase_PaymentType" FromRole="Purchase" ToRole="PaymentType" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.FK_Purchase_AspNetUsers" FromRole="Purchase" ToRole="AspNetUsers" />
         </EntityType>
         <EntityType Name="Wallet">
           <Key>
@@ -668,78 +641,6 @@
             </Principal>
             <Dependent Role="Account">
               <PropertyRef Name="AccountTypeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Account_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.Account" Role="Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChatMessage_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.ChatMessage" Role="ChatMessage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ChatMessage">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Course_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.Course" Role="Course" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Course">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CourseRating_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.CourseRating" Role="CourseRating" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CourseRating">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Purchase_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Purchase">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Wallet_AspNetUsers">
-          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
-          <End Type="Model.Wallet" Role="Wallet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Wallet">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -839,26 +740,103 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Account" Relationship="Model.FK_Account_AspNetUsers" FromRole="AspNetUsers" ToRole="Account" />
+          <NavigationProperty Name="ChatMessage" Relationship="Model.FK_ChatMessage_AspNetUsers" FromRole="AspNetUsers" ToRole="ChatMessage" />
+          <NavigationProperty Name="Course" Relationship="Model.FK_Course_AspNetUsers" FromRole="AspNetUsers" ToRole="Course" />
+          <NavigationProperty Name="CourseRating" Relationship="Model.FK_CourseRating_AspNetUsers" FromRole="AspNetUsers" ToRole="CourseRating" />
+          <NavigationProperty Name="Purchase" Relationship="Model.FK_Purchase_AspNetUsers" FromRole="AspNetUsers" ToRole="Purchase" />
+          <NavigationProperty Name="Wallet" Relationship="Model.FK_Wallet_AspNetUsers" FromRole="AspNetUsers" ToRole="Wallet" />
+        </EntityType>
+        <Association Name="FK_Account_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChatMessage_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChatMessage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.Course" Role="Course" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Course">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CourseRating_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.CourseRating" Role="CourseRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CourseRating">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchase_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wallet_AspNetUsers">
+          <End Type="Model.AspNetUsers" Role="AspNetUsers" Multiplicity="1" />
+          <End Type="Model.Wallet" Role="Wallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Wallet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="ListAspNetUsers">
-            <EntityTypeMapping TypeName="Model.AspNetUsers">
-              <MappingFragment StoreEntitySet="AspNetUsers">
-                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ListAccount">
             <EntityTypeMapping TypeName="Model.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -995,6 +973,20 @@
               <MappingFragment StoreEntitySet="Wallet">
                 <ScalarProperty Name="Balance" ColumnName="Balance" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListAspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

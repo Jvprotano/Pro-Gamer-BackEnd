@@ -20,7 +20,7 @@ namespace ProGamer.BackEnd.Entities
         public System.DateTime DateSend { get; set; }
         public string Message { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
         public virtual Chat Chat { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

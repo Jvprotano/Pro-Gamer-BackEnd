@@ -1,7 +1,9 @@
 ﻿using ProGamer.BackEnd.Helpers;
+using ProGamer.BackEnd.Models;
 using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Models.Response;
 using ProGamer.BackEnd.Services.Interfaces;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,8 +58,37 @@ namespace ProGamer.BackEnd.Services.Implements
 
             return loginResult;
         }
-        #endregion
 
         #endregion
+
+        #region RegisterUserAsync
+        public async Task RegisterUserAsync(RegisterUserRequest request, ApplicationUserManager userManager)
+        {
+            request.ValidateModel();
+
+            using (var context = new Entities.Entities())
+            {
+                if (context.ListAspNetUsers.Any(u => u.UserName == request.Email))
+                    throw new ValidationException("O e-mail informado já está cadastrado no sistema.");
+
+                var newUser = new ApplicationUser
+                {
+                    Email = request.Email,
+                    UserName = request.Email,
+                    LastName = request.LastName,
+                    Name = request.Name,
+                    DateBirth = request.DateBirth,
+                    Active = true
+                };
+
+                await userManager.CreateAsync(newUser, request.Password);
+            }
+
+
+
+        }
+        #endregion
+        #endregion
+
     }
 }
