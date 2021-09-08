@@ -1,10 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="ProGamerEntities">
+    <EntitySetMapping Name="ListAspNetUsers">
+      <EntityTypeMapping TypeName="DbModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ListAccount">
-      <EntityTypeMapping TypeName="Model.Account">
+      <EntityTypeMapping TypeName="DbModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="NomeBank" ColumnName="NomeBank" />
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
+          <ScalarProperty Name="NameBank" ColumnName="NameBank" />
           <ScalarProperty Name="Agency" ColumnName="Agency" />
           <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="Digit" ColumnName="Digit" />
@@ -15,8 +35,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListAccountType">
-      <EntityTypeMapping TypeName="Model.AccountType">
+      <EntityTypeMapping TypeName="DbModel.AccountType">
         <MappingFragment StoreEntitySet="AccountType">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Key" ColumnName="Key" />
@@ -25,15 +47,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListChat">
-      <EntityTypeMapping TypeName="Model.Chat">
+      <EntityTypeMapping TypeName="DbModel.Chat">
         <MappingFragment StoreEntitySet="Chat">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListChatMessage">
-      <EntityTypeMapping TypeName="Model.ChatMessage">
+      <EntityTypeMapping TypeName="DbModel.ChatMessage">
         <MappingFragment StoreEntitySet="ChatMessage">
           <ScalarProperty Name="Message" ColumnName="Message" />
           <ScalarProperty Name="DateSend" ColumnName="DateSend" />
@@ -44,8 +68,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListCourse">
-      <EntityTypeMapping TypeName="Model.Course">
+      <EntityTypeMapping TypeName="DbModel.Course">
         <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -59,8 +85,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListCourseCategory">
-      <EntityTypeMapping TypeName="Model.CourseCategory">
+      <EntityTypeMapping TypeName="DbModel.CourseCategory">
         <MappingFragment StoreEntitySet="CourseCategory">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -68,8 +96,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListCourseRating">
-      <EntityTypeMapping TypeName="Model.CourseRating">
+      <EntityTypeMapping TypeName="DbModel.CourseRating">
         <MappingFragment StoreEntitySet="CourseRating">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CourseId" ColumnName="CourseId" />
@@ -78,8 +109,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListGame">
-      <EntityTypeMapping TypeName="Model.Game">
+      <EntityTypeMapping TypeName="DbModel.Game">
         <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -87,8 +120,10 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListPayment">
-      <EntityTypeMapping TypeName="Model.Payment">
+      <EntityTypeMapping TypeName="DbModel.Payment">
         <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="PaymentReponse" ColumnName="PaymentReponse" />
           <ScalarProperty Name="PaymentRequest" ColumnName="PaymentRequest" />
           <ScalarProperty Name="NumberInstallments" ColumnName="NumberInstallments" />
@@ -101,16 +136,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListPaymentStatus">
-      <EntityTypeMapping TypeName="Model.PaymentStatus">
+      <EntityTypeMapping TypeName="DbModel.PaymentStatus">
         <MappingFragment StoreEntitySet="PaymentStatus">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListPaymentType">
-      <EntityTypeMapping TypeName="Model.PaymentType">
+      <EntityTypeMapping TypeName="DbModel.PaymentType">
         <MappingFragment StoreEntitySet="PaymentType">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Key" ColumnName="Key" />
@@ -119,7 +158,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ListPurchase">
-      <EntityTypeMapping TypeName="Model.Purchase">
+      <EntityTypeMapping TypeName="DbModel.Purchase">
         <MappingFragment StoreEntitySet="Purchase">
           <ScalarProperty Name="DatePurchase" ColumnName="DatePurchase" />
           <ScalarProperty Name="Code" ColumnName="Code" />
@@ -132,25 +171,27 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ListWallet">
-      <EntityTypeMapping TypeName="Model.Wallet">
-        <MappingFragment StoreEntitySet="Wallet">
-          <ScalarProperty Name="Balance" ColumnName="Balance" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
+    <EntitySetMapping Name="ListUser">
+      <EntityTypeMapping TypeName="DbModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ListAspNetUsers">
-      <EntityTypeMapping TypeName="Model.AspNetUsers">
-        <MappingFragment StoreEntitySet="AspNetUsers">
-          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
+    <EntitySetMapping Name="ListWallet">
+      <EntityTypeMapping TypeName="DbModel.Wallet">
+        <MappingFragment StoreEntitySet="Wallet">
+          <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
+          <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

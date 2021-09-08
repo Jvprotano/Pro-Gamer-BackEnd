@@ -16,7 +16,7 @@ namespace ProGamer.BackEnd.Entities
     {
         public int Id { get; set; }
         public int PaymentTypeId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public int CourseId { get; set; }
         public int PaymentId { get; set; }
         public int PaymentStatusId { get; set; }
@@ -27,6 +27,6 @@ namespace ProGamer.BackEnd.Entities
         public virtual Payment Payment { get; set; }
         public virtual PaymentStatus PaymentStatus { get; set; }
         public virtual PaymentType PaymentType { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

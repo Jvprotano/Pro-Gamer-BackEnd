@@ -16,11 +16,11 @@ namespace ProGamer.BackEnd.Entities
     {
         public int Id { get; set; }
         public int ChatId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public System.DateTime DateSend { get; set; }
         public string Message { get; set; }
     
         public virtual Chat Chat { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

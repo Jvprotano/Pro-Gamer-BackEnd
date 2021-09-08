@@ -6,7 +6,7 @@ namespace ProGamer.BackEnd.Models.Response
     public class UserResponse
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
         
         [JsonProperty("email")]
         public string Email { get; set; }
@@ -37,11 +37,5 @@ namespace ProGamer.BackEnd.Models.Response
      
         [JsonProperty("expires")]
         public DateTime Expires { get; set; }
-        
-        [JsonProperty("accessExternalToken")]
-        public string AccessExternalToken { get; set; }
-        
-        [JsonProperty("refreshExternalToken")]
-        public string RefreshExternalToken { get; set; }
     }
 }

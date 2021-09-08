@@ -23,20 +23,22 @@ namespace ProGamer.BackEnd.Entities
     
         public int Id { get; set; }
         public int GameId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public int CourseCategoryId { get; set; }
         public int Duration { get; set; }
         public decimal Value { get; set; }
         public string Description { get; set; }
         public bool Active { get; set; }
         public string Title { get; set; }
+        public System.DateTime DateUtcInsert { get; set; }
+        public Nullable<System.DateTime> DateUtcUpdate { get; set; }
     
         public virtual CourseCategory CourseCategory { get; set; }
         public virtual Game Game { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CourseRating> CourseRating { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Purchase> Purchase { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
     }
 }

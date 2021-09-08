@@ -14,7 +14,7 @@ namespace ProGamer.BackEnd
         public ApplicationUserManager(IUserStore<ApplicationUser> store)
             : base(store)
         {
-        }
+        }   
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
@@ -29,10 +29,10 @@ namespace ProGamer.BackEnd
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireNonLetterOrDigit = false,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)

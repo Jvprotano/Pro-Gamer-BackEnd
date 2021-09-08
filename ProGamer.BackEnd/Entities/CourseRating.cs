@@ -16,10 +16,13 @@ namespace ProGamer.BackEnd.Entities
     {
         public int Id { get; set; }
         public int CourseId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public int Note { get; set; }
+        public string Comment { get; set; }
+        public System.DateTime DateUtcInsert { get; set; }
+        public Nullable<System.DateTime> DateUtcUpdate { get; set; }
     
         public virtual Course Course { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

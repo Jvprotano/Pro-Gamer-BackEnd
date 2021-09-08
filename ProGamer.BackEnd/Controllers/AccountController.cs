@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Services.Interfaces;
 
@@ -14,15 +15,23 @@ namespace ProGamer.BackEnd.Controllers
     {
         #region Properties
         private readonly IAccountService _accountService = null;
+        private ApplicationUserManager _userManager;
+
         public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
         }
 
-        private ApplicationUserManager _userManager;
+        public AccountController(ApplicationUserManager userManager,
+           ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+        {
+            UserManager = userManager;
+            AccessTokenFormat = accessTokenFormat;
+        }
+
         public ApplicationUserManager UserManager
         {
-            get
+            get 
             {
                 return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
@@ -31,6 +40,8 @@ namespace ProGamer.BackEnd.Controllers
                 _userManager = value;
             }
         }
+
+        public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
         #endregion
 
         #region Methods
@@ -64,17 +75,15 @@ namespace ProGamer.BackEnd.Controllers
         {
             try
             {
-               await _accountService.RegisterUserAsync(request, _userManager);
+                await _accountService.RegisterUserAsync(request, UserManager);
 
                 return Ok();
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
         }
-
         #endregion
 
         #endregion

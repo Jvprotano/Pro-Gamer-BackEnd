@@ -16,13 +16,15 @@ namespace ProGamer.BackEnd.Entities
     {
         public int Id { get; set; }
         public int AccountTypeId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public string Digit { get; set; }
         public string Number { get; set; }
         public string Agency { get; set; }
-        public string NomeBank { get; set; }
+        public string NameBank { get; set; }
+        public System.DateTime DateUtcInsert { get; set; }
+        public Nullable<System.DateTime> DateUtcUpdate { get; set; }
     
         public virtual AccountType AccountType { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

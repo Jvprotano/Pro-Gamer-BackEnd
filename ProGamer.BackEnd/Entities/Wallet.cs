@@ -15,9 +15,11 @@ namespace ProGamer.BackEnd.Entities
     public partial class Wallet
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public decimal Balance { get; set; }
+        public System.DateTime DateUtcInsert { get; set; }
+        public Nullable<System.DateTime> DateUtcUpdate { get; set; }
     
-        public virtual AspNetUsers AspNetUsers { get; set; }
+        public virtual User User { get; set; }
     }
 }

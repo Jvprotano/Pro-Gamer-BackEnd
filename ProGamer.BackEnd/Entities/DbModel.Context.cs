@@ -13,10 +13,10 @@ namespace ProGamer.BackEnd.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class ProGamerEntities : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public ProGamerEntities()
+            : base("name=ProGamerEntities")
         {
         }
     
@@ -25,6 +25,7 @@ namespace ProGamer.BackEnd.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AspNetUsers> ListAspNetUsers { get; set; }
         public virtual DbSet<Account> ListAccount { get; set; }
         public virtual DbSet<AccountType> ListAccountType { get; set; }
         public virtual DbSet<Chat> ListChat { get; set; }
@@ -37,7 +38,7 @@ namespace ProGamer.BackEnd.Entities
         public virtual DbSet<PaymentStatus> ListPaymentStatus { get; set; }
         public virtual DbSet<PaymentType> ListPaymentType { get; set; }
         public virtual DbSet<Purchase> ListPurchase { get; set; }
+        public virtual DbSet<User> ListUser { get; set; }
         public virtual DbSet<Wallet> ListWallet { get; set; }
-        public virtual DbSet<AspNetUsers> ListAspNetUsers { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace ProGamer.BackEnd.Entities
     
         public int Id { get; set; }
         public bool Active { get; set; }
+        public System.DateTime DateUtcInsert { get; set; }
+        public Nullable<System.DateTime> DateUtcUpdate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChatMessage> ChatMessage { get; set; }

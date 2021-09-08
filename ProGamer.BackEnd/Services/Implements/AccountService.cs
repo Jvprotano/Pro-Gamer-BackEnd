@@ -1,4 +1,5 @@
-﻿using ProGamer.BackEnd.Helpers;
+﻿using Microsoft.AspNet.Identity;
+using ProGamer.BackEnd.Helpers;
 using ProGamer.BackEnd.Models;
 using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Models.Response;
@@ -7,6 +8,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using ProGamer.BackEnd.Entities;
+using System;
 
 namespace ProGamer.BackEnd.Services.Implements
 {
@@ -30,12 +33,12 @@ namespace ProGamer.BackEnd.Services.Implements
                 return loginResult;
             }
 
-            using (var context = new Entities.Entities())
+            using (var context = new ProGamerEntities())
             {
                 var token = await TokenHelper.GenerateAuthUserTokenAsync(request.Email, request.Password, url);
 
-                loginResult.UserData = await context.ListAspNetUsers
-                    .Where(u => u.UserName == request.Email && u.Active)
+                loginResult.UserData = await context.ListUser
+                    .Where(u => u.Email == request.Email && u.Active)
                     .Select(u => new UserResponse
                     {
                         Id = u.Id,
@@ -44,10 +47,16 @@ namespace ProGamer.BackEnd.Services.Implements
                         LastName = u.LastName,
                         Active = u.Active,
                         DateBirth = u.DateBirth,
+                        AccessToken = token.AccessToken,
+                        TokenType = token.TokenType,
+                        ExpiresIn = token.ExpiresIn,
+                        Issued = token.Issued,
+                        Expires = token.Expires,
                     })
+                    .AsNoTracking()
                     .FirstOrDefaultAsync();
 
-                if (loginResult.UserData.Active)
+                if (!loginResult.UserData.Active)
                 {
                     loginResult.ErrorMessage = "Usuário inativo";
                     return loginResult;
@@ -66,29 +75,35 @@ namespace ProGamer.BackEnd.Services.Implements
         {
             request.ValidateModel();
 
-            using (var context = new Entities.Entities())
+            using (var context = new ProGamerEntities())
             {
-                if (context.ListAspNetUsers.Any(u => u.UserName == request.Email))
+                if (context.ListAspNetUsers.AsNoTracking().Any(u => u.UserName == request.Email))
                     throw new ValidationException("O e-mail informado já está cadastrado no sistema.");
 
-                var newUser = new ApplicationUser
+                var newUser = new ApplicationUser { Email = request.Email, UserName = request.Email };
+
+                //registra o usuário na base de dados
+                IdentityResult result = await userManager.CreateAsync(newUser, request.Password);
+              
+                if (!result.Succeeded)
+                    throw new ValidationException($"{result.Errors.First()}");
+
+                var userModel = new User
                 {
-                    Email = request.Email,
-                    UserName = request.Email,
-                    LastName = request.LastName,
                     Name = request.Name,
-                    DateBirth = request.DateBirth,
-                    Active = true
+                    LastName = request.LastName,
+                    Email = request.Email,
+                    DateBirth = request.DateBirth.Date,                    
+                    Active = true,
+                    DateUtcInsert = DateTime.UtcNow
                 };
 
-                await userManager.CreateAsync(newUser, request.Password);
+                context.Entry(userModel).State = EntityState.Added;
+                await context.SaveChangesAsync();
             }
-
-
-
         }
         #endregion
-        #endregion
 
+        #endregion
     }
 }

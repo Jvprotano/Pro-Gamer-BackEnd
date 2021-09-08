@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
+using ProGamer.BackEnd.Entities;
 
 namespace ProGamer.BackEnd.Controllers
 {
@@ -23,15 +24,15 @@ namespace ProGamer.BackEnd.Controllers
             }
         }
 
-        protected string UserId
+        protected int UserId
         {
             get
             {
-                using (var context = new Entities.Entities() )
+                using (var context = new ProGamerEntities())
                 {
                     string userName = User.Identity.GetUserName();
-                    var user = context.ListAspNetUsers.FirstOrDefault(u => u.UserName == userName);
-                    return user != null ? user.Id : "";
+                    var user = context.ListUser.FirstOrDefault(u => u.Email == userName);
+                    return user != null ? user.Id : 0;
                 }
             }
         }
