@@ -30,6 +30,7 @@ namespace ProGamer.BackEnd.Services.Implements
                         description = u.Description,
                         duration = u.Duration,
                         value = u.Value,
+                        user = u.UserId
                     })
                     .FirstOrDefaultAsync();
             }

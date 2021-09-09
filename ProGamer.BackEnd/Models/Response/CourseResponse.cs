@@ -27,7 +27,7 @@ namespace ProGamer.BackEnd.Models.Response
         public string title { get; set; }
 
         [JsonProperty("user")]
-        public UserResponse user { get; set; }
+        public int user { get; set; }
 
         public string errorMessage { get; set; }
     }
