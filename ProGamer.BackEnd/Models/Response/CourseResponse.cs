@@ -9,26 +9,39 @@ namespace ProGamer.BackEnd.Models.Response
     public class CourseResponse
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("duration")]
-        public int duration { get; set; }
+        public int Duration { get; set; }
 
         [JsonProperty("value")]
-        public decimal value { get; set; }
+        public decimal Value { get; set; }
 
         [JsonProperty("description")]
-        public string description { get; set; }
-
-        [JsonProperty("active")]
-        public bool active { get; set; }
+        public string Description { get; set; }
 
         [JsonProperty("title")]
-        public string title { get; set; }
+        public string Title { get; set; }
 
-        [JsonProperty("user")]
-        public int user { get; set; }
+        [JsonProperty("instrutorId")]
+        public int InstrutorId { get; set; }
 
-        public string errorMessage { get; set; }
+        [JsonIgnore]
+        public string InstrutorName { get; set; }
+
+        [JsonIgnore]
+        public string InstrutorLastName { get; set; }
+
+        [JsonProperty("instrutorFullName")]
+        public string InstrutorFullName => InstrutorName + " " + InstrutorLastName;
+
+        [JsonProperty("categoryName")]
+        public string CategoryName { get; set; }
+
+        [JsonIgnore]
+        public DateTime CreationDate { get; set; }
+
+        [JsonProperty("strCreationDate")]
+        public string StrCreationDate => CreationDate.ToString("dd/MM/yyyy");
     }
 }

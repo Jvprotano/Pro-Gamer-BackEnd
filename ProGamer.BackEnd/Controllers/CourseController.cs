@@ -42,18 +42,22 @@ namespace ProGamer.BackEnd.Controllers
         #region InfoCourse
         [HttpGet]
         [AllowAnonymous]
-        [Route("info")]
-        public async Task<IHttpActionResult> InfoCourse(int id)
+        [Route("")]
+        public async Task<IHttpActionResult> Get(int id)
         
         {
             try
             {
-                var CourseInfoResult = await _courseService.CourseInfoAsync(id);
-                return Ok(CourseInfoResult);
+                var courseInfoResult = await _courseService.GetAsync(id);
+                if (courseInfoResult == null)
+                {
+                    return NotFound();
+                }
+                return Ok(courseInfoResult);
             }
             catch (Exception ex)
             {
-                return BadRequest("Curso não encontrado");
+                return BadRequest(ex.Message);
             }
             
         }

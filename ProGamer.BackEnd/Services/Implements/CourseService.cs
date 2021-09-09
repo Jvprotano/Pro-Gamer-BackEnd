@@ -14,36 +14,33 @@ namespace ProGamer.BackEnd.Services.Implements
     {
         #region Methods
         #region CursoInfoAsync
-        public async Task<CourseResponse> CourseInfoAsync(int id)
+        public async Task<CourseResponse> GetAsync(int id)
         {
-            var CourseInfo = new CourseResponse();
-            var CourseInfo2 = new CourseResponse() {id = 10, title="Ze"};
+            var courseInfo = new CourseResponse();
 
             using (var context = new ProGamerEntities())
             {
-                CourseInfo = await context.ListCourse
-                    .Where(u => u.Id == id)
+                courseInfo = await context.ListCourse
+                    .Include(u=> u.User)
+                    .Include(u=> u.CourseCategory)
+                    .Where(u => u.Id == id && u.Active)
                     .Select(u => new CourseResponse
                     {
-                        id = u.Id,
-                        title = u.Title,
-                        description = u.Description,
-                        duration = u.Duration,
-                        value = u.Value,
-                        user = u.UserId
+                        Id = u.Id,
+                        Title = u.Title,
+                        Description = u.Description,
+                        Duration = u.Duration,
+                        Value = u.Value,
+                        InstrutorId = u.UserId,
+                        InstrutorName = u.User.Name,
+                        InstrutorLastName = u.User.LastName,
+                        CategoryName = u.CourseCategory.Name,
+                        CreationDate = u.DateUtcInsert
                     })
                     .FirstOrDefaultAsync();
             }
-            if (CourseInfo == null)
-            {
-                CourseInfo2.errorMessage = "Curso não encontrado, usando o curso 2";
-                return CourseInfo2;
-            }
-            else
-            {
-                return CourseInfo;
-            }
-            
+
+            return courseInfo;
         }
         #endregion
         #endregion

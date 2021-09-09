@@ -9,6 +9,6 @@ namespace ProGamer.BackEnd.Services.Interfaces
 {
     public interface ICourseService
     {
-        Task<CourseResponse> CourseInfoAsync(int id);
+        Task<CourseResponse> GetAsync(int id);
     }
 }
