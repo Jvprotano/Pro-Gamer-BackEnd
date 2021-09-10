@@ -1,4 +1,5 @@
 ﻿using ProGamer.BackEnd.Entities;
+using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Models.Response;
 using ProGamer.BackEnd.Services.Interfaces;
 using System.Data.Entity;
@@ -10,6 +11,31 @@ namespace ProGamer.BackEnd.Services.Implements
     public class CourseService : ICourseService
     {
         #region Methods
+
+        #region RegisterCourse
+        public async Task RegisterCourseAsync(RegisterCourseRequest request, ApplicationUserManager userManager)
+        {
+            using (var context = new ProGamerEntities())
+            {
+                var courseModel = new Course
+                {
+                    Title = request.Title,
+                    Description = request.Description,
+                    Duration = request.Duration,
+                    Value = request.Value,
+                    GameId = request.GameId,
+                    UserId = request.UserId,
+                    CourseCategoryId = request.CategoryId,
+                    DateUtcInsert = System.DateTime.UtcNow,
+                    DateUtcUpdate = System.DateTime.UtcNow
+                };
+
+                context.Entry(courseModel).State = EntityState.Added;
+                await context.SaveChangesAsync();
+            }
+        }
+        #endregion
+
         #region CursoInfoAsync
         public async Task<CourseResponse> GetAsync(int id)
         {
@@ -39,6 +65,7 @@ namespace ProGamer.BackEnd.Services.Implements
 
             return courseInfo;
         }
+
         #endregion
         #endregion
 

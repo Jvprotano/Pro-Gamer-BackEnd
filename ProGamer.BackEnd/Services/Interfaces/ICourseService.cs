@@ -1,4 +1,5 @@
-﻿using ProGamer.BackEnd.Models.Response;
+﻿using ProGamer.BackEnd.Models.Request;
+using ProGamer.BackEnd.Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace ProGamer.BackEnd.Services.Interfaces
     public interface ICourseService
     {
         Task<CourseResponse> GetAsync(int id);
+        Task RegisterCourseAsync(RegisterCourseRequest request, ApplicationUserManager userManager);
     }
 }

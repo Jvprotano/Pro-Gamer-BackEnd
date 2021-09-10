@@ -312,6 +312,7 @@
     <Compile Include="Helpers\ValidateHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Request\LoginRequest.cs" />
+    <Compile Include="Models\Request\RegisterCourseRequest.cs" />
     <Compile Include="Models\Request\RegisterUserRequest.cs" />
     <Compile Include="Models\Response\CourseResponse.cs" />
     <Compile Include="Models\Response\LoginResponse.cs" />

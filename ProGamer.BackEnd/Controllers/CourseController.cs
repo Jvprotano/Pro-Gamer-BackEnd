@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
+using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Services.Interfaces;
 using System;
 using System.Net.Http;
@@ -35,6 +36,24 @@ namespace ProGamer.BackEnd.Controllers
         #endregion
 
         #region Methods
+
+        #region RegisterCourse
+        [HttpPost]
+        [Route("register-course")]
+        public async Task<IHttpActionResult> RegisterCourse([FromBody] RegisterCourseRequest request)
+        {
+            try
+            {
+                await _courseService.RegisterCourseAsync(request, UserManager);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        #endregion
 
         #region InfoCourse
         [HttpGet]
