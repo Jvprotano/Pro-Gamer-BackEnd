@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using ProGamer.BackEnd.Models.Response;
 using ProGamer.BackEnd.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;

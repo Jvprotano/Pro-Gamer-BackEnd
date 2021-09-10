@@ -1,12 +1,9 @@
 ﻿using ProGamer.BackEnd.Entities;
 using ProGamer.BackEnd.Models.Response;
 using ProGamer.BackEnd.Services.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ProGamer.BackEnd.Services.Implements
 {
@@ -31,9 +28,9 @@ namespace ProGamer.BackEnd.Services.Implements
                         Description = u.Description,
                         Duration = u.Duration,
                         Value = u.Value,
-                        InstrutorId = u.UserId,
-                        InstrutorName = u.User.Name,
-                        InstrutorLastName = u.User.LastName,
+                        InstructorId = u.UserId,
+                        InstructorName = u.User.Name,
+                        InstructorLastName = u.User.LastName,
                         CategoryName = u.CourseCategory.Name,
                         CreationDate = u.DateUtcInsert
                     })

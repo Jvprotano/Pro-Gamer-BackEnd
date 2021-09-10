@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ProGamer.BackEnd.Models.Response
 {
@@ -23,17 +20,17 @@ namespace ProGamer.BackEnd.Models.Response
         [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonProperty("instrutorId")]
-        public int InstrutorId { get; set; }
+        [JsonProperty("instructorId")]
+        public int InstructorId { get; set; }
 
         [JsonIgnore]
-        public string InstrutorName { get; set; }
+        public string InstructorName { get; set; }
 
         [JsonIgnore]
-        public string InstrutorLastName { get; set; }
+        public string InstructorLastName { get; set; }
 
-        [JsonProperty("instrutorFullName")]
-        public string InstrutorFullName => InstrutorName + " " + InstrutorLastName;
+        [JsonProperty("instructorFullName")]
+        public string InstructorFullName => InstructorName + " " + InstructorLastName;
 
         [JsonProperty("categoryName")]
         public string CategoryName { get; set; }
