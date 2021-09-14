@@ -113,6 +113,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="DateUtcInsert" Type="datetime" Nullable="false" />
           <Property Name="DateUtcUpdate" Type="datetime" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -646,6 +647,7 @@
           <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Course" Relationship="DbModel.FK_Course_Game" FromRole="Game" ToRole="Course" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -1029,6 +1031,7 @@
           <EntitySetMapping Name="ListGame">
             <EntityTypeMapping TypeName="DbModel.Game">
               <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="DateUtcUpdate" ColumnName="DateUtcUpdate" />
                 <ScalarProperty Name="DateUtcInsert" ColumnName="DateUtcInsert" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
