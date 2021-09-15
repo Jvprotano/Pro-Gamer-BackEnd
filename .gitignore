@@ -338,3 +338,18 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+ProGamer.BackEnd/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.AssemblyReference.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.CoreCompileInputs.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.dll
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.pdb
+ProGamer.BackEnd/App_Data/aspnet-ProGamer.BackEnd-20210824091729.mdf
+ProGamer.BackEnd/App_Data/aspnet-ProGamer.BackEnd-20210824091729_log.ldf
+ProGamer.BackEnd/bin/ProGamer.BackEnd.dll
+ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
+ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
+*.pdb
+*.cache
+*.pdb
+*.dll
+*.pdb
