@@ -25,9 +25,9 @@ namespace ProGamer.BackEnd.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AspNetUsers> ListAspNetUsers { get; set; }
         public virtual DbSet<Account> ListAccount { get; set; }
         public virtual DbSet<AccountType> ListAccountType { get; set; }
+        public virtual DbSet<AspNetUsers> ListAspNetUsers { get; set; }
         public virtual DbSet<Chat> ListChat { get; set; }
         public virtual DbSet<ChatMessage> ListChatMessage { get; set; }
         public virtual DbSet<Course> ListCourse { get; set; }

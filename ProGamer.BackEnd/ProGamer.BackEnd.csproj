@@ -368,6 +368,8 @@
     <Content Include="Entities\DbModel.edmx.diagram">
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\ProGamer - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ProGamer - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

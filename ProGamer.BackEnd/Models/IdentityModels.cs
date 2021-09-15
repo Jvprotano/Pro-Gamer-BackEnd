@@ -20,7 +20,7 @@ namespace ProGamer.BackEnd.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("EntitiesApplication", throwIfV1Schema: false)
+            : base("ProGamerAuth", throwIfV1Schema: false)
         {
         }
 
