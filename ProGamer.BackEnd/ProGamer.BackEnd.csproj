@@ -244,6 +244,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\HomeAppController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\Account.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -314,7 +315,10 @@
     <Compile Include="Models\Request\LoginRequest.cs" />
     <Compile Include="Models\Request\RegisterCourseRequest.cs" />
     <Compile Include="Models\Request\RegisterUserRequest.cs" />
+    <Compile Include="Models\Response\CourseCardResponse.cs" />
     <Compile Include="Models\Response\CourseResponse.cs" />
+    <Compile Include="Models\Response\GameCardResponse.cs" />
+    <Compile Include="Models\Response\HomeResponse.cs" />
     <Compile Include="Models\Response\LoginResponse.cs" />
     <Compile Include="Models\Response\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -322,8 +326,10 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\Implements\AccountService.cs" />
     <Compile Include="Services\Implements\CourseService.cs" />
+    <Compile Include="Services\Implements\HomeAppService.cs" />
     <Compile Include="Services\Interfaces\IAccountService.cs" />
     <Compile Include="Services\Interfaces\ICourseService.cs" />
+    <Compile Include="Services\Interfaces\IHomeAppService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -386,7 +392,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Sql\2021-08-23 - alteracoes.sql" />
+    <Content Include="Sql\alteracoes.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProGamerProdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProGamerProdModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -113,6 +113,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="DateUtcInsert" Type="datetime" Nullable="false" />
           <Property Name="DateUtcUpdate" Type="datetime" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -442,8 +443,7 @@
             <End Role="Wallet" EntitySet="Wallet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProGamerProdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -570,6 +570,7 @@
           <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Course" Relationship="Self.FK_Course_Game" FromRole="Game" ToRole="Course" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
@@ -1030,6 +1031,7 @@
           <EntitySetMapping Name="ListGame">
             <EntityTypeMapping TypeName="ProGamerProdModel.Game">
               <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
