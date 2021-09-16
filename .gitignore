@@ -362,3 +362,4 @@ healthchecksdb
 >>>>>>> parent of 534829d (merge info-course)
 =======
 >>>>>>> parent of d18688a (git ignore)
+*.cache
