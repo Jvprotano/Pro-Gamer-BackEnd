@@ -354,8 +354,11 @@ ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
 *.pdb
 *.dll
 *.pdb
+<<<<<<< HEAD
 *.cache
 .vs/ProGamer.BackEnd/v16/.suo
 =======
 healthchecksdb
 >>>>>>> parent of 534829d (merge info-course)
+=======
+>>>>>>> parent of d18688a (git ignore)
