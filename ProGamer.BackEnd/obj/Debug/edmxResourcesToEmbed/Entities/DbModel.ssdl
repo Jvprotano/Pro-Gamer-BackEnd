@@ -108,7 +108,6 @@
     <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
     <Property Name="DateUtcInsert" Type="datetime" Nullable="false" />
     <Property Name="DateUtcUpdate" Type="datetime" />
-    <Property Name="ImageUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
