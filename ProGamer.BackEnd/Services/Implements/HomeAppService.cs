@@ -32,37 +32,24 @@ namespace ProGamer.BackEnd.Services.Implements
                     .AsNoTracking()
                     .ToListAsync();
 
-                homeData.ListCourseRecent = await context.ListCourse
+                var listCourse = await context.ListCourse
                     .Include(c => c.User)
                     .Where(c => c.Active)
-                    .OrderByDescending(c => c.DateUtcInsert)
-                    .Select(c => new CourseCardResponse
-                    {
-                        Id = c.Id,
-                        Title = c.Title,
-                        Description = c.Description,
-                        InstructorName = c.User.Name + " " + c.User.LastName,
-                    })
-                    .Take(12)
-                    .AsNoTracking()
+                     .Select(c => new CourseCardResponse
+                     {
+                         Id = c.Id,
+                         Title = c.Title,
+                         Description = c.Description,
+                         InstructorName = c.User.Name + " " + c.User.LastName,
+                         DateUtcInsert = c.DateUtcInsert,
+                     })
+                     .AsNoTracking()
                     .ToListAsync();
 
-                Random random = new Random();
+                homeData.ListCourseRecent = listCourse.OrderByDescending(c => c.DateUtcInsert).Take(12).ToList();
 
-                homeData.listCourseRecommended = await context.ListCourse
-                  .Include(c => c.User)
-                  .Where(c => c.Active)
-                  .Select(c => new CourseCardResponse
-                  {
-                      Id = c.Id,
-                      Title = c.Title,
-                      Description = c.Description,
-                      InstructorName = c.User.Name + " " + c.User.LastName,
-                  })
-                  .OrderBy(c => random.Next())
-                  .Take(12)
-                  .AsNoTracking()
-                  .ToListAsync();
+                Random random = new Random();
+                homeData.listCourseRecommended = listCourse.OrderBy(c => random.Next()).Take(12).ToList();
             }
 
             return homeData;

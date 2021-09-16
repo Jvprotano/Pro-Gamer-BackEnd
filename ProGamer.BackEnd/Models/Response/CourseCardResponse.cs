@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace ProGamer.BackEnd.Models.Response
 {
@@ -15,5 +16,8 @@ namespace ProGamer.BackEnd.Models.Response
          
         [JsonProperty("description")]
         public string Description { get; set; }
+
+        [JsonIgnore]
+        public DateTime DateUtcInsert { get; set; }
     }
 }
