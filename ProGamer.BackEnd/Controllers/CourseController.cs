@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNet.Identity.Owin;
-using ProGamer.BackEnd.Models.Request;
+﻿using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Services.Interfaces;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace ProGamer.BackEnd.Controllers
@@ -14,25 +11,11 @@ namespace ProGamer.BackEnd.Controllers
     {
         #region Properties
         private readonly ICourseService _courseService = null;
-        private ApplicationUserManager _userManager;
 
         public CourseController(ICourseService courseService)
         {
             _courseService = courseService;
         }
-
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
-
         #endregion
 
         #region Methods
@@ -44,7 +27,7 @@ namespace ProGamer.BackEnd.Controllers
         {
             try
             {
-                await _courseService.RegisterCourseAsync(request, UserManager);
+                await _courseService.RegisterCourseAsync(request);
 
                 return Ok();
             }

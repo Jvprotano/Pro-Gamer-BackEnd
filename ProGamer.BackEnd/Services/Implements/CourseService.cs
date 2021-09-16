@@ -1,7 +1,9 @@
 ﻿using ProGamer.BackEnd.Entities;
+using ProGamer.BackEnd.Helpers;
 using ProGamer.BackEnd.Models.Request;
 using ProGamer.BackEnd.Models.Response;
 using ProGamer.BackEnd.Services.Interfaces;
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,8 +15,10 @@ namespace ProGamer.BackEnd.Services.Implements
         #region Methods
 
         #region RegisterCourse
-        public async Task RegisterCourseAsync(RegisterCourseRequest request, ApplicationUserManager userManager)
+        public async Task RegisterCourseAsync(RegisterCourseRequest request)
         {
+            request.ValidateModel();
+
             using (var context = new ProGamerEntities())
             {
                 var courseModel = new Course
@@ -26,8 +30,7 @@ namespace ProGamer.BackEnd.Services.Implements
                     GameId = request.GameId,
                     UserId = request.UserId,
                     CourseCategoryId = request.CategoryId,
-                    DateUtcInsert = System.DateTime.UtcNow,
-                    DateUtcUpdate = System.DateTime.UtcNow
+                    DateUtcInsert = DateTime.UtcNow,
                 };
 
                 context.Entry(courseModel).State = EntityState.Added;
@@ -65,9 +68,8 @@ namespace ProGamer.BackEnd.Services.Implements
 
             return courseInfo;
         }
-
-        #endregion
         #endregion
 
+        #endregion
     }
 }
