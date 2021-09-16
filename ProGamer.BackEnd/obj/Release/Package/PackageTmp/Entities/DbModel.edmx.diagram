@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="684c0bafcda14e39a5c4ae49b3500354" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="DbModel.AspNetUsers" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Account" Width="1.5" PointX="7.125" PointY="2.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.AccountType" Width="1.5" PointX="4.875" PointY="2.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Chat" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.ChatMessage" Width="1.5" PointX="7" PointY="5.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Course" Width="1.5" PointX="4.125" PointY="3.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.CourseCategory" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.CourseRating" Width="1.5" PointX="9.25" PointY="4.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Game" Width="1.5" PointX="1.625" PointY="7.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Payment" Width="1.5" PointX="10.25" PointY="7.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.PaymentStatus" Width="1.5" PointX="7" PointY="7.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.PaymentType" Width="1.5" PointX="3.875" PointY="7.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Purchase" Width="1.5" PointX="6.125" PointY="6.5" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.User" Width="1.5" PointX="1.875" PointY="5" IsExpanded="false" />
+        <EntityTypeShape EntityType="DbModel.Wallet" Width="1.5" PointX="10.75" PointY="6.25" IsExpanded="false" />
+        <AssociationConnector Association="DbModel.FK_Account_AccountType" />
+        <AssociationConnector Association="DbModel.FK_Account_User" />
+        <AssociationConnector Association="DbModel.FK_ChatMessage_Chat" />
+        <AssociationConnector Association="DbModel.FK_ChatMessage_User" />
+        <AssociationConnector Association="DbModel.FK_Course_CourseCategory" />
+        <AssociationConnector Association="DbModel.FK_Course_Game" />
+        <AssociationConnector Association="DbModel.FK_Course_User" />
+        <AssociationConnector Association="DbModel.FK_CourseRating_Course" />
+        <AssociationConnector Association="DbModel.FK_Purchase_Course" />
+        <AssociationConnector Association="DbModel.FK_CourseRating_User" />
+        <AssociationConnector Association="DbModel.FK_Purchase_Payment" />
+        <AssociationConnector Association="DbModel.FK_Purchase_PaymentStatus" />
+        <AssociationConnector Association="DbModel.FK_Purchase_PaymentType" />
+        <AssociationConnector Association="DbModel.FK_Purchase_User" />
+        <AssociationConnector Association="DbModel.FK_Wallet_User" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

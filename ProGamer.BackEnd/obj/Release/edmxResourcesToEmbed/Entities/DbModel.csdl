@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ProGamerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ListAspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="ListAccount" EntityType="DbModel.Account" />
+    <EntitySet Name="ListAccountType" EntityType="DbModel.AccountType" />
+    <EntitySet Name="ListChat" EntityType="DbModel.Chat" />
+    <EntitySet Name="ListChatMessage" EntityType="DbModel.ChatMessage" />
+    <EntitySet Name="ListCourse" EntityType="DbModel.Course" />
+    <EntitySet Name="ListCourseCategory" EntityType="DbModel.CourseCategory" />
+    <EntitySet Name="ListCourseRating" EntityType="DbModel.CourseRating" />
+    <EntitySet Name="ListGame" EntityType="DbModel.Game" />
+    <EntitySet Name="ListPayment" EntityType="DbModel.Payment" />
+    <EntitySet Name="ListPaymentStatus" EntityType="DbModel.PaymentStatus" />
+    <EntitySet Name="ListPaymentType" EntityType="DbModel.PaymentType" />
+    <EntitySet Name="ListPurchase" EntityType="DbModel.Purchase" />
+    <EntitySet Name="ListUser" EntityType="DbModel.User" />
+    <EntitySet Name="ListWallet" EntityType="DbModel.Wallet" />
+    <AssociationSet Name="FK_Account_AccountType" Association="DbModel.FK_Account_AccountType">
+      <End Role="AccountType" EntitySet="ListAccountType" />
+      <End Role="Account" EntitySet="ListAccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Account_User" Association="DbModel.FK_Account_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="Account" EntitySet="ListAccount" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatMessage_Chat" Association="DbModel.FK_ChatMessage_Chat">
+      <End Role="Chat" EntitySet="ListChat" />
+      <End Role="ChatMessage" EntitySet="ListChatMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChatMessage_User" Association="DbModel.FK_ChatMessage_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="ChatMessage" EntitySet="ListChatMessage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_CourseCategory" Association="DbModel.FK_Course_CourseCategory">
+      <End Role="CourseCategory" EntitySet="ListCourseCategory" />
+      <End Role="Course" EntitySet="ListCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_Game" Association="DbModel.FK_Course_Game">
+      <End Role="Game" EntitySet="ListGame" />
+      <End Role="Course" EntitySet="ListCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Course_User" Association="DbModel.FK_Course_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="Course" EntitySet="ListCourse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRating_Course" Association="DbModel.FK_CourseRating_Course">
+      <End Role="Course" EntitySet="ListCourse" />
+      <End Role="CourseRating" EntitySet="ListCourseRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Course" Association="DbModel.FK_Purchase_Course">
+      <End Role="Course" EntitySet="ListCourse" />
+      <End Role="Purchase" EntitySet="ListPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CourseRating_User" Association="DbModel.FK_CourseRating_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="CourseRating" EntitySet="ListCourseRating" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Payment" Association="DbModel.FK_Purchase_Payment">
+      <End Role="Payment" EntitySet="ListPayment" />
+      <End Role="Purchase" EntitySet="ListPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_PaymentStatus" Association="DbModel.FK_Purchase_PaymentStatus">
+      <End Role="PaymentStatus" EntitySet="ListPaymentStatus" />
+      <End Role="Purchase" EntitySet="ListPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_PaymentType" Association="DbModel.FK_Purchase_PaymentType">
+      <End Role="PaymentType" EntitySet="ListPaymentType" />
+      <End Role="Purchase" EntitySet="ListPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_User" Association="DbModel.FK_Purchase_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="Purchase" EntitySet="ListPurchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Wallet_User" Association="DbModel.FK_Wallet_User">
+      <End Role="User" EntitySet="ListUser" />
+      <End Role="Wallet" EntitySet="ListWallet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountTypeId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Digit" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Agency" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NameBank" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AccountType" Relationship="DbModel.FK_Account_AccountType" FromRole="Account" ToRole="AccountType" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_Account_User" FromRole="Account" ToRole="User" />
+  </EntityType>
+  <EntityType Name="AccountType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="DbModel.FK_Account_AccountType" FromRole="AccountType" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="Chat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChatMessage" Relationship="DbModel.FK_ChatMessage_Chat" FromRole="Chat" ToRole="ChatMessage" />
+  </EntityType>
+  <EntityType Name="ChatMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChatId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="DateSend" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Chat" Relationship="DbModel.FK_ChatMessage_Chat" FromRole="ChatMessage" ToRole="Chat" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_ChatMessage_User" FromRole="ChatMessage" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GameId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CourseCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CourseCategory" Relationship="DbModel.FK_Course_CourseCategory" FromRole="Course" ToRole="CourseCategory" />
+    <NavigationProperty Name="Game" Relationship="DbModel.FK_Course_Game" FromRole="Course" ToRole="Game" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_Course_User" FromRole="Course" ToRole="User" />
+    <NavigationProperty Name="CourseRating" Relationship="DbModel.FK_CourseRating_Course" FromRole="Course" ToRole="CourseRating" />
+    <NavigationProperty Name="Purchase" Relationship="DbModel.FK_Purchase_Course" FromRole="Course" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="CourseCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_Course_CourseCategory" FromRole="CourseCategory" ToRole="Course" />
+  </EntityType>
+  <EntityType Name="CourseRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_CourseRating_Course" FromRole="CourseRating" ToRole="Course" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_CourseRating_User" FromRole="CourseRating" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_Course_Game" FromRole="Game" ToRole="Course" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastFourDigits" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CardCpf" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CardFlag" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="NumberInstallments" Type="Int32" Nullable="false" />
+    <Property Name="PaymentRequest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentReponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Purchase" Relationship="DbModel.FK_Purchase_Payment" FromRole="Payment" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="PaymentStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Purchase" Relationship="DbModel.FK_Purchase_PaymentStatus" FromRole="PaymentStatus" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="PaymentType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Purchase" Relationship="DbModel.FK_Purchase_PaymentType" FromRole="PaymentType" ToRole="Purchase" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTypeId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentId" Type="Int32" Nullable="false" />
+    <Property Name="PaymentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DatePurchase" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_Purchase_Course" FromRole="Purchase" ToRole="Course" />
+    <NavigationProperty Name="Payment" Relationship="DbModel.FK_Purchase_Payment" FromRole="Purchase" ToRole="Payment" />
+    <NavigationProperty Name="PaymentStatus" Relationship="DbModel.FK_Purchase_PaymentStatus" FromRole="Purchase" ToRole="PaymentStatus" />
+    <NavigationProperty Name="PaymentType" Relationship="DbModel.FK_Purchase_PaymentType" FromRole="Purchase" ToRole="PaymentType" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_Purchase_User" FromRole="Purchase" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Account" Relationship="DbModel.FK_Account_User" FromRole="User" ToRole="Account" />
+    <NavigationProperty Name="ChatMessage" Relationship="DbModel.FK_ChatMessage_User" FromRole="User" ToRole="ChatMessage" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_Course_User" FromRole="User" ToRole="Course" />
+    <NavigationProperty Name="CourseRating" Relationship="DbModel.FK_CourseRating_User" FromRole="User" ToRole="CourseRating" />
+    <NavigationProperty Name="Purchase" Relationship="DbModel.FK_Purchase_User" FromRole="User" ToRole="Purchase" />
+    <NavigationProperty Name="Wallet" Relationship="DbModel.FK_Wallet_User" FromRole="User" ToRole="Wallet" />
+  </EntityType>
+  <EntityType Name="Wallet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="DbModel.FK_Wallet_User" FromRole="Wallet" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Account_AccountType">
+    <End Type="DbModel.AccountType" Role="AccountType" Multiplicity="1" />
+    <End Type="DbModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccountType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="AccountTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Account_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatMessage_Chat">
+    <End Type="DbModel.Chat" Role="Chat" Multiplicity="1" />
+    <End Type="DbModel.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChatMessage">
+        <PropertyRef Name="ChatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChatMessage_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.ChatMessage" Role="ChatMessage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChatMessage">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_CourseCategory">
+    <End Type="DbModel.CourseCategory" Role="CourseCategory" Multiplicity="1" />
+    <End Type="DbModel.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_Game">
+    <End Type="DbModel.Game" Role="Game" Multiplicity="1" />
+    <End Type="DbModel.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="GameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Course_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.Course" Role="Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRating_Course">
+    <End Type="DbModel.Course" Role="Course" Multiplicity="1" />
+    <End Type="DbModel.CourseRating" Role="CourseRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseRating">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Course">
+    <End Type="DbModel.Course" Role="Course" Multiplicity="1" />
+    <End Type="DbModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CourseRating_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.CourseRating" Role="CourseRating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CourseRating">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Payment">
+    <End Type="DbModel.Payment" Role="Payment" Multiplicity="1" />
+    <End Type="DbModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_PaymentStatus">
+    <End Type="DbModel.PaymentStatus" Role="PaymentStatus" Multiplicity="1" />
+    <End Type="DbModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="PaymentStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_PaymentType">
+    <End Type="DbModel.PaymentType" Role="PaymentType" Multiplicity="1" />
+    <End Type="DbModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="PaymentTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.Purchase" Role="Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Wallet_User">
+    <End Type="DbModel.User" Role="User" Multiplicity="1" />
+    <End Type="DbModel.Wallet" Role="Wallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Wallet">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

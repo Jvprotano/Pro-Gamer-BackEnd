@@ -16,6 +16,7 @@ namespace ProGamer.BackEnd.App_Start
             //registrar interfaces
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<CourseService>().As<ICourseService>();
+            builder.RegisterType<HomeAppService>().As<IHomeAppService>();
 
             var container = builder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
