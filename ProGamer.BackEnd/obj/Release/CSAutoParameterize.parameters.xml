@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="ProGamerAuth-Web.config Connection String" description="ProGamerAuth A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=pro-gamer-sever.database.windows.net;Database=ProGamerProd;User ID=progameradmin;Password=admin@123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Usuario\\source\\repos\\progamer-back\\ProGamer\.BackEnd\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProGamerAuth']/@connectionString" />
-  </parameter>
-  <parameter name="ProGamerEntities-Web.config Connection String" description="ProGamerEntities A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="metadata=res://*/Entities.DbModel.csdl|res://*/Entities.DbModel.ssdl|res://*/Entities.DbModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=pro-gamer-sever.database.windows.net;initial catalog=ProGamerProd;persist security info=True;user id=progameradmin;password=admin@123;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Usuario\\source\\repos\\progamer-back\\ProGamer\.BackEnd\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProGamerEntities']/@connectionString" />
-  </parameter>
-</parameters>
