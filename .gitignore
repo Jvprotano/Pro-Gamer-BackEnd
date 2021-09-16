@@ -363,3 +363,16 @@ healthchecksdb
 =======
 >>>>>>> parent of d18688a (git ignore)
 *.cache
+.vs/progamer-back/v16/.suo
+.vs/ProGamer.BackEnd/config/applicationhost.config
+.vs/ProGamer.BackEnd/v16/.suo
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
+ProGamer.BackEnd/bin/ProGamer.BackEnd.dll
+ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
+ProGamer.BackEnd/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.AssemblyReference.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.CoreCompileInputs.cache
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.FileListAbsolute.txt
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.dll
+ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.pdb
