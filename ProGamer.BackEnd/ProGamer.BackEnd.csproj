@@ -243,7 +243,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\Account.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -314,16 +313,13 @@
     <Compile Include="Models\Request\LoginRequest.cs" />
     <Compile Include="Models\Request\RegisterCourseRequest.cs" />
     <Compile Include="Models\Request\RegisterUserRequest.cs" />
-    <Compile Include="Models\Response\CourseResponse.cs" />
     <Compile Include="Models\Response\LoginResponse.cs" />
     <Compile Include="Models\Response\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Services\Implements\AccountService.cs" />
-    <Compile Include="Services\Implements\CourseService.cs" />
     <Compile Include="Services\Interfaces\IAccountService.cs" />
-    <Compile Include="Services\Interfaces\ICourseService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
