@@ -137,6 +137,8 @@ J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\ob
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.Cors.dll
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\System.Web.Cors.dll
 J:\JotaVe\ESOFT\ESOFT2k21\ESCOLA DE TI\Projeto\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.Cors.xml
+C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.AssemblyReference.cache
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\ProGamer.BackEnd.dll.config
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\ProGamer.BackEnd.dll
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\ProGamer.BackEnd.pdb
@@ -271,8 +273,6 @@ C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\System.Web.Http.Owin.xml
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.CopyComplete
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.dll
 C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.pdb
-C:\Users\Usuario\source\repos\progamer-back\ProGamer.BackEnd\obj\Debug\ProGamer.BackEnd.csproj.AssemblyReference.cache
