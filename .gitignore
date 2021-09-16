@@ -353,3 +353,5 @@ ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
 *.pdb
 *.dll
 *.pdb
+*.cache
+.vs/ProGamer.BackEnd/v16/.suo
