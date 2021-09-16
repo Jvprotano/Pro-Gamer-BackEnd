@@ -25,6 +25,7 @@ namespace ProGamer.BackEnd.Entities
         public string Name { get; set; }
         public System.DateTime DateUtcInsert { get; set; }
         public Nullable<System.DateTime> DateUtcUpdate { get; set; }
+        public string ImageUrl { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
