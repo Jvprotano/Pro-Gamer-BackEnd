@@ -337,6 +337,7 @@ ASALocalRun/
 .localhistory/
 
 # BeatPulse healthcheck temp database
+<<<<<<< HEAD
 healthchecksdb
 ProGamer.BackEnd/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 ProGamer.BackEnd/obj/Debug/ProGamer.BackEnd.csproj.AssemblyReference.cache
@@ -355,3 +356,6 @@ ProGamer.BackEnd/bin/ProGamer.BackEnd.pdb
 *.pdb
 *.cache
 .vs/ProGamer.BackEnd/v16/.suo
+=======
+healthchecksdb
+>>>>>>> parent of 534829d (merge info-course)
