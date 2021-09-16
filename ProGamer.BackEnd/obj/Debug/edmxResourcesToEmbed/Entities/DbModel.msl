@@ -111,6 +111,9 @@
     <EntitySetMapping Name="ListGame">
       <EntityTypeMapping TypeName="ProGamerProdModel.Game">
         <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Name" ColumnName="Name" />

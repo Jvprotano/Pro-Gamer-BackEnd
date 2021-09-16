@@ -122,7 +122,8 @@
     <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DateUtcInsert" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="DateUtcUpdate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Course" Relationship="Self.FK_Course_Game" FromRole="Game" ToRole="Course" />
+    <NavigationProperty Name="Course" Relationship="DbModel.FK_Course_Game" FromRole="Game" ToRole="Course" />
+    <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>

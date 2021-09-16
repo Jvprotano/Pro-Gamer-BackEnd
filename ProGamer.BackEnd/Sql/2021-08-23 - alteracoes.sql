@@ -162,3 +162,4 @@ create table Wallet (
 	constraint FK_Wallet_User foreign key(UserId) references [User] (Id),
 )
 
+ alter table [Game] add [ImageUrl] nvarchar(max) not null 
